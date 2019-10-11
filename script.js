@@ -2,6 +2,40 @@ let start = null;
 let lowerLimitPixelWidth = 0;
 let upperLimitPixelWidth = 300;
 let upperWidthPercentage= 100;
+let lowerWidthPercentage= 0;
+let newWidthOfForegroundImage = 50;
+
+let picturesContainerData = document.getElementsByClassName('picture-curtain')[0].getClientRects()[0];
+
+const picturesContainerLeft = picturesContainerData.left;
+const picturesContainerRight = picturesContainerData.right;
+const picturesContainerWidth = picturesContainerLeft - picturesContainerRight;
+
+let foregroundPicture = document.getElementsByClassName('foreground-picture-container')[0];
+console.log(picturesContainerData);
+
+function curtainEffect(timestamp, foregroundPictureWidth) {
+  foregroundPictureWidth = foregroundPictureWidth / 3;
+  foregroundPicture.style.width = foregroundPictureWidth + '%';
+}
+
+function curtainEffectHandler(e) {
+  window.requestAnimationFrame((timestamp) => {
+    curtainEffect(timestamp, e.pageX - picturesContainerLeft);
+  });
+}
+
+
+
+
+/*
+janky effect implementation
+---------------------------
+
+let start = null;
+let lowerLimitPixelWidth = 0;
+let upperLimitPixelWidth = 300;
+let upperWidthPercentage= 100;
 let lowerWidthPercentage= 100;
 let newWidthOfForegroundImage = 50;
 
@@ -40,3 +74,4 @@ function sliderEffectHandler (e) {
 
   window.requestAnimationFrame(curtainEffect);
 }
+*/

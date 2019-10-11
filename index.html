@@ -8,11 +8,12 @@
   <title>Image Comparator </title>
 </head>
 <body>
+  <!-- rename function name to sliderEffectHandler for janky effect-->
   <div
      class='picture-curtain'
-     onMouseEnter="sliderEffectHandler(event);"
-     onMouseMove="sliderEffectHandler(event);"
-     onMouseLeave="sliderEffectHandler(event);"
+     onMouseEnter="curtainEffectHandler(event);"
+     onMouseMove="curtainEffectHandler(event);"
+     onMouseLeave="curtainEffectHandler(event);"
   >
   <div class='background-picture-container'>
     <img class="background-picture" src="https://picsum.photos/id/866/300/230" alt="background picture">
@@ -20,7 +21,6 @@
   <div class='foreground-picture-container'>
     <img class="foreground-picture" src="https://picsum.photos/id/1005/300/230" alt="foreground picture">
   </div>
-
 
   <script src="script.js"></script>
 </div>
