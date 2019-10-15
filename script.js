@@ -1,9 +1,12 @@
 let start = null;
+
 let lowerLimitPixelWidth = 0;
 let upperLimitPixelWidth = 300;
-let upperWidthPercentage= 100;
+
 let lowerWidthPercentage= 0;
-let newWidthOfForegroundImage = 50;
+let upperWidthPercentage= 100;
+
+let defaultWidthOfForegroundImage = 50;
 
 let picturesContainerData = document.getElementsByClassName('picture-curtain')[0].getClientRects()[0];
 
@@ -24,8 +27,6 @@ function curtainEffectHandler(e) {
     curtainEffect(timestamp, e.pageX - picturesContainerLeft);
   });
 }
-
-
 
 
 /*
