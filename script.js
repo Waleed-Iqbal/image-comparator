@@ -1,5 +1,3 @@
-let start = null;
-
 let lowerLimitPixelWidth = 0;
 let upperLimitPixelWidth = 300;
 
