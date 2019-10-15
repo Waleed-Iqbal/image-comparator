@@ -1,76 +1,45 @@
-let lowerLimitPixelWidth = 0;
-let upperLimitPixelWidth = 300;
 
-let lowerWidthPercentage= 0;
-let upperWidthPercentage= 100;
-
-let defaultWidthOfForegroundImage = 50;
 
 let picturesContainerData = document.getElementsByClassName('picture-curtain')[0].getClientRects()[0];
 
 const picturesContainerLeft = picturesContainerData.left;
-const picturesContainerRight = picturesContainerData.right;
-const picturesContainerWidth = picturesContainerLeft - picturesContainerRight;
 
 let foregroundPicture = document.getElementsByClassName('foreground-picture-container')[0];
 console.log(picturesContainerData);
 
-function curtainEffect(timestamp, foregroundPictureWidth) {
-  foregroundPictureWidth = foregroundPictureWidth / 3;
+function curtainEffect(foregroundPictureWidth) {
+  foregroundPictureWidth = foregroundPictureWidth / 5;
   foregroundPicture.style.width = foregroundPictureWidth + '%';
 }
 
 function curtainEffectHandler(e) {
-  window.requestAnimationFrame((timestamp) => {
-    curtainEffect(timestamp, e.pageX - picturesContainerLeft);
+  window.requestAnimationFrame(() => {
+    curtainEffect(e.pageX - picturesContainerLeft);
   });
 }
 
 
-/*
-janky effect implementation
----------------------------
 
-let start = null;
-let lowerLimitPixelWidth = 0;
-let upperLimitPixelWidth = 300;
-let upperWidthPercentage= 100;
-let lowerWidthPercentage= 100;
-let newWidthOfForegroundImage = 50;
+// janky effect implementation
+// ---------------------------
 
-let picturesContainerData = document.getElementsByClassName('picture-curtain')[0].getClientRects()[0];
-let foregroundPicture = document.getElementsByClassName('foreground-picture-container')[0];
-console.log(picturesContainerData);
+// let newWidthOfForegroundImage = 30;
 
-function curtainEffect(timestamp) {
-  if (!start) start = timestamp;
-  var progress = timestamp - start;
+// let picturesContainerData = document.getElementsByClassName('picture-curtain')[0].getClientRects()[0];
+// let foregroundPicture = document.getElementsByClassName('foreground-picture-container')[0];
+// console.log(picturesContainerData);
 
-  if (newWidthOfForegroundImage <= lowerLimit) newWidthOfForegroundImage = lowerLimit;
-  if (newWidthOfForegroundImage >= upperLimit) newWidthOfForegroundImage = upperLimit;
+// function curtainEffect() {
+//   newWidthOfForegroundImage = newWidthOfForegroundImage/5;
+//   foregroundPicture.style.width = newWidthOfForegroundImage + '%';
+// }
 
-  newWidthOfForegroundImage = (newWidthOfForegroundImage - 184)/2.76;
+// function curtainEffectHandler (e) {
+//   newWidthOfForegroundImage = e.pageX - picturesContainerData.left;
+//   console.log(`e.pageX: ${e.pageX}`);
+//   console.log(`picturesContainerData.left: ${picturesContainerData.left}`);
+//   console.log(`newWidthOfForegroundImage: ${newWidthOfForegroundImage}`);
+//   console.log(`---------------------`);
 
-  if (newWidthOfForegroundImage === upperWidthPercentage) return; // bad hack
-  if (newWidthOfForegroundImage >= 98) newWidthOfForegroundImage = upperWidthPercentage; // bad hack
-
-  foregroundPicture.style.width = newWidthOfForegroundImage + '%';
-
-  if (progress < 400) {
-    window.requestAnimationFrame(curtainEffect);
-  }
-}
-
-function sliderEffectHandler (e) {
-  newWidthOfForegroundImage = e.pageX - picturesContainerData.left;
-  console.log(`e.pageX: ${e.pageX}`);
-  console.log(`picturesContainerData.left: ${picturesContainerData.left}`);
-  console.log(`newWidthOfForegroundImage: ${newWidthOfForegroundImage}`);
-  console.log(`---------------------`);
-
-  if (newWidthOfForegroundImage <= lowerLimit) newWidthOfForegroundImage = lowerLimit;
-  if (newWidthOfForegroundImage >= upperLimit) newWidthOfForegroundImage = upperLimit;
-
-  window.requestAnimationFrame(curtainEffect);
-}
-*/
+//   window.requestAnimationFrame(curtainEffect);
+// }
