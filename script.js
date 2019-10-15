@@ -8,11 +8,12 @@ let foregroundPicture = document.getElementsByClassName('foreground-picture-cont
 console.log(picturesContainerData);
 
 function curtainEffect(foregroundPictureWidth) {
-  foregroundPictureWidth = foregroundPictureWidth / 5;
-  foregroundPicture.style.width = foregroundPictureWidth + '%';
+  foregroundPicture.style.width = foregroundPictureWidth + 'px';
 }
 
 function curtainEffectHandler(e) {
+  // foregroundPicture.style.width = (e.pageX - picturesContainerLeft) + 'px';
+
   window.requestAnimationFrame(() => {
     curtainEffect(e.pageX - picturesContainerLeft);
   });
