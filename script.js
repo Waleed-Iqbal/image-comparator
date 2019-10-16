@@ -1,46 +1,23 @@
 
 
-let picturesContainerData = document.getElementsByClassName('picture-curtain')[0].getClientRects()[0];
+let curtainContainer = document.getElementsByClassName('curtain-container')[0].getClientRects()[0];
 
-const picturesContainerLeft = picturesContainerData.left;
+const leftBoundary = curtainContainer.left;
 
-let foregroundPicture = document.getElementsByClassName('foreground-picture-container')[0];
-console.log(picturesContainerData);
+let foregroundContainer = document.getElementsByClassName('foreground-image-container')[0];
 
-function curtainEffect(foregroundPictureWidth) {
-  foregroundPicture.style.width = foregroundPictureWidth + 'px';
+let newWidth = '40%';
+
+let callBack = () => {
+  newWidth = newWidth + "%";
+  foregroundContainer.style.width = newWidth;
+  console.log('newWidth')
 }
 
-function curtainEffectHandler(e) {
-  // foregroundPicture.style.width = (e.pageX - picturesContainerLeft) + 'px';
+let mouseMoveHandler = (e) => {
 
-  window.requestAnimationFrame(() => {
-    curtainEffect(e.pageX - picturesContainerLeft);
-  });
+  newWidth = e.offsetX;
+  foregroundContainer.style.width = newWidth;
+  window.requestAnimationFrame(callBack);
+
 }
-
-
-
-// janky effect implementation
-// ---------------------------
-
-// let newWidthOfForegroundImage = 30;
-
-// let picturesContainerData = document.getElementsByClassName('picture-curtain')[0].getClientRects()[0];
-// let foregroundPicture = document.getElementsByClassName('foreground-picture-container')[0];
-// console.log(picturesContainerData);
-
-// function curtainEffect() {
-//   newWidthOfForegroundImage = newWidthOfForegroundImage/5;
-//   foregroundPicture.style.width = newWidthOfForegroundImage + '%';
-// }
-
-// function curtainEffectHandler (e) {
-//   newWidthOfForegroundImage = e.pageX - picturesContainerData.left;
-//   console.log(`e.pageX: ${e.pageX}`);
-//   console.log(`picturesContainerData.left: ${picturesContainerData.left}`);
-//   console.log(`newWidthOfForegroundImage: ${newWidthOfForegroundImage}`);
-//   console.log(`---------------------`);
-
-//   window.requestAnimationFrame(curtainEffect);
-// }

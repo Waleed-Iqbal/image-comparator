@@ -1,1 +1,1 @@
-.picture-curtain{position:relative;margin:0 auto;width:500px;height:300px;overflow:hidden}.picture-curtain div{width:100%;height:100%;overflow:hidden;position:absolute}.picture-curtain img{width:auto;height:100%}.picture-curtain .foreground-picture-container{width:30%}
+.curtain-container{position:relative;width:500px;height:300px;margin:0 auto}.curtain-container div{position:absolute}.curtain-container .foreground-image-container{overflow:hidden;width:40%}

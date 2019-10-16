@@ -4,33 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
     <title>Picture Comparator</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div
-      class="picture-curtain"
-      onMouseEnter="curtainEffectHandler(event);"
-      onMouseMove="curtainEffectHandler(event);"
-      onMouseLeave="curtainEffectHandler(event);"
-    >
-      <div class="background-picture-container">
+    <div class="curtain-container"
+     onmousemove="mouseMoveHandler(event);">
+      <div class="background-image-container">
         <img
-          class="background-picture"
           src="./img-bg.jpg"
-          alt="background picture"
+          alt="background image"
+          class="background-image"
         />
-        <!-- https://picsum.photos/id/866/500/300 -->
       </div>
-      <div class="foreground-picture-container">
+      <div class="foreground-image-container">
         <img
-          class="foreground-picture"
           src="./img-fg.jpg"
-          alt="foreground picture"
+          alt="foreground image"
+          class="foreground-image"
         />
-        <!-- https://picsum.photos/id/1005/500/300 -->
       </div>
     </div>
-    <script src="script.js"></script>
+
+    <script src="./script.js"></script>
   </body>
 </html>

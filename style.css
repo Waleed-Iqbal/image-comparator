@@ -1,23 +1,15 @@
-.picture-curtain {
+.curtain-container {
   position: relative;
-  margin: 0 auto;
   width: 500px;
   height: 300px;
-  overflow: hidden;
+  margin: 0 auto;
 }
 
-.picture-curtain div {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+.curtain-container div {
   position: absolute;
 }
 
-.picture-curtain img {
-  width: auto;
-  height: 100%;
-}
-
-.picture-curtain .foreground-picture-container {
-  width: 30%;
+.curtain-container .foreground-image-container {
+  overflow: hidden;
+  width: 40%;
 }
